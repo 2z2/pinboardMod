@@ -12,4 +12,4 @@
 就这儿了 : [Godaddy coupon][3]
 [1]: http://www.gubo.org/
 [2]: http://www.peeg.org/
-[3]: http://www.gdcodecoupon.coms
+[3]: http://www.gdcodecoupon.com
