@@ -16,6 +16,37 @@ add_action('admin_menu', 'disable_dashboard_widgets');
 if ( is_admin() && is_readable( get_template_directory() . '/includes/theme-options.php' ) )
 	require_once( get_template_directory() . '/includes/theme-options.php' );
 
+//mod here
+if(!function_exists('add_validation_def_date')) :
+function add_validation_def_date(){
+	global $post;
+	$validation_date_getfromdb = get_post_meta($post->ID, 'validation', true);
+	if (empty($validation_date_getfromdb)) {
+		add_post_meta($post->ID, 'validation', date(get_option('date_format')), true) || update_post_meta($post->ID, 'validation', date(get_option('date_format')));
+	}
+}
+endif;
+//hook
+add_action('publish_post', 'add_validation_def_date');
+
+
+if (!function_exists('validation_date')) :
+/*
+ * 验证日期自定义字段模块
+ *
+ */
+function validation_date(){
+	global $post;
+	$validation_date_def = 'No Validation';
+	$validation_date_get = get_post_meta($post->ID, 'validation', true);
+	if (empty($validation_date_get)) {
+		$validation_date_get = $validation_date_def;
+	}
+	return $validation_date_get;
+}
+endif;
+
+
 if ( ! function_exists( 'pinboard_theme_setup' ) ) :
 /*
  * Set up theme specific settings
