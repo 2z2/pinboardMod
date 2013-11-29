@@ -1642,7 +1642,7 @@ function pinboard_entry_meta() {
 					<?php endif; ?>
 				<?php endforeach; ?>
 			<?php else : ?>
-				<span class="entry-author-link"><?php the_author_posts_link(); ?></span>
+				
 				<?php if( ! is_singular() ) : ?>
 					<span class="entry-date"><a href="<?php echo get_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
 				<?php else : ?>
@@ -1657,7 +1657,7 @@ function pinboard_entry_meta() {
 				<?php if( ! is_singular() ) : ?>
 					<span class="entry-permalink"><a href="<?php echo get_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Permalink</a></span>
 				<?php endif; ?>
-				<span class="entry-date validation">validation date : <?php echo validation_date() ?></span>
+				<span class="entry-date">Validation date <span class="validation" style="padding: 0 5px 0 5px;"><?php echo validation_date() ?></span></span>
 				<?php if(current_user_can('level_10'))  : ?>
 					<?php if (is_single()) : ?>
 						<span><a id="updateDate">Update Validation</a></span>
