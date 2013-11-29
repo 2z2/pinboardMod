@@ -3244,3 +3244,12 @@ a.ajax-load:hover {
        -o-transition-property: left, right, top;
           transition-property: left, right, top;
 }
+.validation {
+	font-weight: bold;
+	color: #fff;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+	background-color: #5cb85c;
+
+}

@@ -10,6 +10,15 @@ function disable_dashboard_widgets() {
 }  
 add_action('admin_menu', 'disable_dashboard_widgets');
 
+
+function update_date(){
+	if( isset($_GET['action'])&& $_GET['action'] == 'update_date'  ){
+			nocache_headers();	//(FIX for IE)
+			update_post_meta($_GET['postid'], 'validation', date(get_option('date_format')));
+			die();
+	}
+}
+add_action('init', 'update_date');
 /**
  * Load the theme options page if in admin mode
  */
@@ -1647,6 +1656,13 @@ function pinboard_entry_meta() {
 				<?php edit_post_link( __( 'Edit', 'pinboard' ), '<span class="edit-link">', '</span>' ); ?>
 				<?php if( ! is_singular() ) : ?>
 					<span class="entry-permalink"><a href="<?php echo get_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Permalink</a></span>
+				<?php endif; ?>
+				<span class="entry-date validation"><?php echo validation_date() ?></span>
+				<?php if(current_user_can('level_10'))  : ?>
+					<?php if (is_single()) : ?>
+						<span><a id="updateDate">Update Validation</a></span>
+						<span id = "ttips"></span>
+					<?php endif; ?>
 				<?php endif; ?>
 			<?php endif; ?>
 			<div class="clear"></div>

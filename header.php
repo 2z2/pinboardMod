@@ -7,6 +7,12 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <?php wp_head(); ?>
+<?php if(is_single()) : ?>
+<script type="text/javascript">
+	jQuery(document).ready(function(){jQuery("#updateDate").click(function(){jQuery.ajax({url:"/?action=update_date&postid=<?php global $post; echo $post->ID;?>",dataType:"json",beforeSend:function(){jQuery("#ttips").html("processing")},success:function(){jQuery("#ttips").html("done!")},error:function(){jQuery("#ttips").html("somgthing wrong!")}})})});
+</script>
+
+<?php endif; ?>
 </head>
 
 <body <?php body_class() ?>>
