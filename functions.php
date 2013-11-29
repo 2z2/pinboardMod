@@ -1657,7 +1657,7 @@ function pinboard_entry_meta() {
 				<?php if( ! is_singular() ) : ?>
 					<span class="entry-permalink"><a href="<?php echo get_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Permalink</a></span>
 				<?php endif; ?>
-				<span class="entry-date validation"><?php echo validation_date() ?></span>
+				<span class="entry-date validation">validation date:<?php echo validation_date() ?></span>
 				<?php if(current_user_can('level_10'))  : ?>
 					<?php if (is_single()) : ?>
 						<span><a id="updateDate">Update Validation</a></span>
