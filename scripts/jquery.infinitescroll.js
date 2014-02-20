@@ -560,6 +560,8 @@
           instance._debug('Using HTML via .load() method');
           box.load(desturl + ' ' + opts.itemSelector, undefined, function infscr_ajax_callback(responseText) {
             instance._loadcallback(box, responseText, desturl);
+            // mod here {add:something, author:zhou}
+            $.getScript("type direct url here");
           });
 
           break;
@@ -669,9 +671,9 @@
       }
             this.retrieve();
             //mod here {add:something, author:zhou}
-            setTimeout(function(){
-                $.getScript("http://www.gdcodecoupon.com/wp-content/plugins/drp-coupon/sc/plugin.min.js");
-            },2000);
+            // setTimeout(function(){
+            //     $.getScript("http://www.gdcodecoupon.com/wp-content/plugins/drp-coupon/sc/plugin.min.js");
+            // },2000);
         },
 
         // Toggle pause value
